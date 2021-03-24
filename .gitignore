@@ -1,2 +1,16 @@
 config.txt
 **/__pycache__/
+
+# Node Specific
+node_modules/
+coverage/
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
