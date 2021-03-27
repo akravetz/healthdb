@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  liftdb:
+    build: "./src"
+    image: "liftdb:latest"
+    init: true
+  database:
+    image: "postgres:13-alpine"
+    ports:
+      - "8001:5432"
