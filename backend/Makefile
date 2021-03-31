@@ -8,6 +8,9 @@ test :
 single-test :
 	@PYTHONPATH=. python -m pytest -p no:warnings --tb=auto -vv ${FILE}
 
+seed_db:
+	@PYTHONPATH=${CORE}/backend python tools/seeder/seeder.py
+
 build:
 	@echo "exporting requirements file"
 	@poetry export -f requirements.txt --without-hashes --output src/requirements.txt

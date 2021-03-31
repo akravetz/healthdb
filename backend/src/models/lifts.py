@@ -8,9 +8,9 @@ class Lift(db.Model):
 
 class LiftSet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime, nullable=False)
+    effective_date = db.Column(db.DateTime, nullable=False)
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
     lift_id = db.Column(db.Integer, db.ForeignKey("lift.id"), nullable=False)
-    weight_kgs = db.Column(db.Integer, nullable=False)
+    weight_kg = db.Column(db.Integer, nullable=False)
     rep_count = db.Column(db.Integer, nullable=False)

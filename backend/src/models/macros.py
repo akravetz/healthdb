@@ -1,4 +1,3 @@
-
 from .base import db
 
 
@@ -19,7 +18,7 @@ class MacroGoals(db.Model):
 
 class MacrosConsumed(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    consumed_date = db.Column(db.DateTime, nullable=False)
+    effective_date = db.Column(db.DateTime, nullable=False)
     added_date = db.Column(
         db.DateTime, nullable=False, default=lambda: datetime.now(timezone.utc)
     )
