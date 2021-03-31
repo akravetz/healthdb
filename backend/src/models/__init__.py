@@ -1,5 +1,6 @@
 from .base import db
-from .lifts import User, Lift, LiftSet
+from .lifts import Lift, LiftSet
+from .users import User
 
 
 def init_app(app):

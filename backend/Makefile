@@ -1,4 +1,5 @@
-.PHONY : test build
+IMAGE_NAME = liftdb-backend
+.PHONY : test build run
 shell :
 	@poetry shell
 test :
@@ -11,8 +12,13 @@ build:
 	@echo "exporting requirements file"
 	@poetry export -f requirements.txt --without-hashes --output src/requirements.txt
 	@echo "building docker image"
-	@docker build -t "liftdb-backend:latest" src
-	@echo "hello"
+	@docker build -t "${IMAGE_NAME}:latest" src
 
 run:
-	@docker-compose up
+	@docker run \
+	-e FLASK_APP=app.py \
+		-e DATABASE_FILE_PATH=/database/database.db \
+		-v ${CORE}/backend/src:/app \
+		-v ${CORE}/backend/database.db:/database/database.db \
+		-p 5000:5000 \
+		${IMAGE_NAME}:latest

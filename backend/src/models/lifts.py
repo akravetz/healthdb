@@ -1,15 +1,6 @@
 from .base import db
 
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(200), unique=True, nullable=False)
-    password_hash_salt = db.Column(db.String(200), unique=True, nullable=False)
-    password_hash = db.Column(db.String(200), unique=True, nullable=False)
-
-    exercise_sets = db.relationship("LiftSet", backref=db.backref("user"))
-
-
 class Lift(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), unique=True, nullable=False)
