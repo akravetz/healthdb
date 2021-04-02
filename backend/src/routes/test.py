@@ -12,6 +12,7 @@ test_bp = Blueprint("test_blueprint", __name__)
 def home():
     return render_template_string("Hello {{ current_user.email }}")
 
+
 @test_bp.route("/foo")
 def foo():
-    return [1,2,3]
+    return {"results": [1, 2, 3, 4]}

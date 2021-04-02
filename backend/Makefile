@@ -20,6 +20,7 @@ build:
 docker-run:
 	@docker run \
 	-e FLASK_APP=src/debug_server.py \
+	-e FLASK_DEBUG=1 \
 		-e DATABASE_FILE_PATH=/database/database.db \
 		-e HEALTHDB_SECRET_KEY=${HEALTHDB_SECRET_KEY} \
 	  -e HEALTHDB_SECURITY_PASSWORD_SALT=${HEALTHDB_SECURITY_PASSWORD_SALT} \
