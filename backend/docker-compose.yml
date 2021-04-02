@@ -1,5 +1,5 @@
 version: "3.4"
 services:
-  liftdb:
-    image: "liftdb:latest"
+  healthdb:
+    image: "healthdb:latest"
     init: true

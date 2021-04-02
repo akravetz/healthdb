@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "liftdb"
+name = "healthdb"
 version = "0.1.0"
 description = ""
 authors = ["Alex Kravetz <alexdkravetz@gmail.com>"]

@@ -1,4 +1,4 @@
-IMAGE_NAME = liftdb-backend
+IMAGE_NAME = healthdb-backend
 .PHONY : test build run
 shell :
 	@poetry shell
