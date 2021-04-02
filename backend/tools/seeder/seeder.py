@@ -33,7 +33,7 @@ def seed_class(db, filename, cls):
 def main():
     core = os.environ["CORE"]
     db_path = os.path.join(core, "backend/database.db")
-    os.environ["DATABASE_FILE_PATH"] = f"sqlite:///{db_path}"
+    os.environ["DATABASE_FILE_PATH"] = f"/{db_path}"
 
     app = Flask(__name__)
     app.app_context().push()

@@ -17,11 +17,21 @@ build:
 	@echo "building docker image"
 	@docker build -t "${IMAGE_NAME}:latest" -f Dockerfile src
 
-run:
+docker-run:
 	@docker run \
 	-e FLASK_APP=app.py \
 		-e DATABASE_FILE_PATH=/database/database.db \
+		-e HEALTHDB_SECRET_KEY=${HEALTHDB_SECRET_KEY} \
+	  -e HEALTHDB_SECURITY_PASSWORD_SALT=${HEALTHDB_SECURITY_PASSWORD_SALT} \
+		-e LOCAL_USER_ID=`id -u ${USER}` \
 		-v ${CORE}/backend/src:/src \
 		-v ${CORE}/backend/database.db:/database/database.db \
 		-p 5000:5000 \
-		${IMAGE_NAME}:latest
+		${OPTIONS} \
+		${IMAGE_NAME}:latest \
+		${COMMAND}
+
+debug:
+	make OPTIONS='-it' COMMAND='bash' docker-run
+run:
+	make docker-run
