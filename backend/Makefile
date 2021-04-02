@@ -19,7 +19,7 @@ build:
 
 docker-run:
 	@docker run \
-	-e FLASK_APP=app.py \
+	-e FLASK_APP=src/debug_server.py \
 		-e DATABASE_FILE_PATH=/database/database.db \
 		-e HEALTHDB_SECRET_KEY=${HEALTHDB_SECRET_KEY} \
 	  -e HEALTHDB_SECURITY_PASSWORD_SALT=${HEALTHDB_SECURITY_PASSWORD_SALT} \
@@ -34,4 +34,4 @@ docker-run:
 debug:
 	make OPTIONS='-it' COMMAND='bash' docker-run
 run:
-	make docker-run
+	make COMMAND='/venv/bin/python -m flask run --host=0.0.0.0' docker-run
